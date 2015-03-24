@@ -1,0 +1,406 @@
+
+@font-face {
+	font-family:'Minecraft Regular';
+	src:url("../../../fonts/minecraft_font_by_pwnage_block-d37t6nb.eot?") format("eot"),
+	url("../../../fonts/minecraft_font_by_pwnage_block-d37t6nb.woff") format("woff"),
+	url("../../../fonts/minecraft_font_by_pwnage_block-d37t6nb.ttf") format("truetype"),
+	url("../../../fonts/minecraft_font_by_pwnage_block-d37t6nb.svg#Minecraft") format("svg");
+	font-weight:normal;
+	font-style:normal;
+}
+.centerDiv{
+
+	width:1100px;
+	height:600px;
+	left: 50%;
+	top:50%;
+
+	margin:0 auto;
+	margin-left : -550px; 
+    margin-top  :30px;
+	position: relative;
+	border: 10px;
+	text-align: center;
+	
+	vertical-align: middle;
+	/*line-height: 90px;
+	line-height: 600px;
+*/	
+	background-image: url('../images/background.jpg');
+}
+.logo{
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-top: -250px;
+}	
+.image{
+	position: ;
+	top: 0;
+	left: 0;
+	margin-bottom: 300px;
+}	
+/*.centerDiv .text{
+	color:blue;
+
+    position:absolute;    
+    
+    font-size:24px;
+    font-weight:bold;
+    left:150px;
+    top:350px;
+
+}*/
+.ui{
+	width: inherit;
+	height:inherit;
+	position: absolute;
+}
+
+body{
+	background-color: black;
+}
+
+.play_button{
+		height: px;
+		width: 300px;
+		position: relative;
+		margin-top: 340px;
+
+		
+}
+		
+
+.play_button:hover,.play_button:focus{
+	 color:#dfe7ea;
+	/*reduce the size of the shadow to give a pushed effect*/
+	-webkit-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+	-moz-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+	box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+
+}
+
+
+.howTo{
+	height: 10%
+}
+.login{
+		height: 400px;
+		width: 350px;
+		/*position:absolute;*/
+}
+
+/*REGISTRATION!*/
+.reg-cont{
+		width:300px;
+		height:200px;
+		margin-top:240px;
+		margin-right:100px;
+		margin-left:390px;
+		position:absolute;
+
+}
+.reg-user,.reg-pass,.reg-mail,.reg-pass2{
+		height: 30px;
+		width: 150px;
+		position:relative;
+		border: solid 1px #fff;
+		box-shadow: inset 1px 1px 2px 0 #707070;
+}
+
+/*characters*/
+.char-cont{
+		width:700px;
+		height:250px;
+		margin-top:240px;
+		margin-right:100px;
+		margin-left:200px;
+		position:absolute;
+
+}
+
+.char{
+		width:auto;
+		height:auto;
+		margin-top:30px;
+		margin-right:100px;
+		margin-left:60px;
+		position:absolute;
+
+}
+
+.warrior,.archers,.mage{
+		/*width:185px;
+		height:165px;*/
+		position:absolute;
+}
+
+.warrior{
+	width:185px;
+	height:165px;
+	margin-top:10px;
+}
+
+.archers{
+	margin-top:-15px;
+	margin-left:160px;
+	width:185px;
+	height:200px;
+}
+
+.mage{
+	margin-left:380px;
+	margin-top:-50px;
+	width:185px;
+	height:250px;
+}
+
+.radio-btn{
+	color:white;
+	font-size:1.4em;
+	margin-top:200px;
+
+}
+.playerinput{
+		height: 30px;
+		width: 200px;
+		position:absolute;
+		margin-top:295px;
+		margin-right:100px;
+		margin-left:310px;
+		border: solid 1px #fff;
+		box-shadow: inset 1px 1px 2px 0 #707070;
+}
+
+.playerinput:focus{
+	
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+
+}
+
+
+
+.playerinput2{
+
+		height: 30px;
+		width: 200px;
+		position:absolute;
+		margin-top:370px;
+		margin-right:100px;
+		margin-left:310px;
+		border: solid 1px #fff;
+		box-shadow: inset 1px 1px 2px 0 #707070;	
+}
+
+.playerinput2:focus{
+	
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+
+}
+
+.playerbtn{
+		height: 30px;
+		width: 100px;
+		position:absolute;
+		margin-top:430px;
+		/*margin-right:100px;*/
+		margin-left:435px;
+		/*style*/
+		border:2px groove #7c93ba;
+		cursor:pointer; /*forces the cursor to change to a hand when the button is hovered* #B80000 #B53333/
+		padding: 5px 25px;
+		/*give the background a gradient - see cssdemos.tupence.co.uk/gradients.htm for more info*/
+		background-color:#B80000; /*required for browsers that don't support gradients*/
+		background: -webkit-gradient(linear, left top, left bottom, from(#B53333), to(#B80000));
+		background: -webkit-linear-gradient(top, #B53333, #B80000);
+		background: -moz-linear-gradient(top, #B53333, #B80000);
+		background: -o-linear-gradient(top, #B53333, #B80000);
+		background: linear-gradient(top, #B53333, #B80000);
+		/*style to the text inside the button*/
+		font-family:Andika, Arial, sans-serif; /*Andkia is available at http://www.google.com/webfonts/specimen/Andika*/
+		color:#fff;
+		font-size:1.1em;
+		letter-spacing:.1em;
+		font-variant:small-caps;
+		
+		/*add a drop shadow to the button*/
+		-webkit-box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+		-moz-box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+		box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+}
+
+.playerbtn:hover,.playerbtn:focus{
+		color:#edebda;
+		/*reduce the spread of the shadow to give a pushed effect*/
+		-webkit-box-shadow: rgba(0, 0, 0, .25) 0 1px 0px;
+		-moz-box-shadow: rgba(0, 0, 0, .25) 0 1px 0px;
+		box-shadow: rgba(0, 0, 0, .25) 0 1px 0px;
+}
+
+/*register btn*/
+ 
+ .confirm{
+ 		height: 30px;
+		width: 250px;
+		position:absolute;
+		margin-top:440px;
+		margin-right:100px;
+		margin-left:290px;
+		/*style*/
+		border:2px groove #7c93ba;
+		cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+		padding: 5px 25px;
+		/*give the background a gradient - see cssdemos.tupence.co.uk/gradients.htm for more info*/
+		background-color:#B80000; /*required for browsers that don't support gradients*/
+		background: -webkit-gradient(linear, left top, left bottom, from(#B53333), to(#B80000));
+		background: -webkit-linear-gradient(top, #B53333, #B80000);
+		background: -moz-linear-gradient(top, #B53333, #B80000);
+		background: -o-linear-gradient(top, #B53333, #B80000);
+		background: linear-gradient(top, #B53333, #B80000);
+		/*style to the text inside the button*/
+		font-family:Andika, Arial, sans-serif; /*Andkia is available at http://www.google.com/webfonts/specimen/Andika*/
+		color:#fff;
+		font-size:1.1em;
+		letter-spacing:.1em;
+		font-variant:small-caps;
+		
+		/*add a drop shadow to the button*/
+		-webkit-box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+		-moz-box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+		box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+
+ }
+.playerbtn2{
+		height: 30px;
+		width: 100px;
+		position:absolute;
+		margin-top:430px;
+		margin-right:100px;
+		margin-left:290px;
+		/*style*/
+		border:2px groove #7c93ba;
+		cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+		padding: 5px 25px;
+		/*give the background a gradient - see cssdemos.tupence.co.uk/gradients.htm for more info*/
+		background-color:#B80000; /*required for browsers that don't support gradients*/
+		background: -webkit-gradient(linear, left top, left bottom, from(#B53333), to(#B80000));
+		background: -webkit-linear-gradient(top, #B53333, #B80000);
+		background: -moz-linear-gradient(top, #B53333, #B80000);
+		background: -o-linear-gradient(top, #B53333, #B80000);
+		background: linear-gradient(top, #B53333, #B80000);
+		/*style to the text inside the button*/
+		font-family:Andika, Arial, sans-serif; /*Andkia is available at http://www.google.com/webfonts/specimen/Andika*/
+		color:#fff;
+		font-size:1.1em;
+		letter-spacing:.1em;
+		font-variant:small-caps;
+		
+		/*add a drop shadow to the button*/
+		-webkit-box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+		-moz-box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+		box-shadow: rgba(0, 0, 0, .75) 0 2px 6px;
+}
+
+.playerbtn2:hover,.playerbtn2:focus,.confirm:focus,.confirm:hover{
+		color:#edebda;
+		/*reduce the spread of the shadow to give a pushed effect*/
+		-webkit-box-shadow: rgba(0, 0, 0, .25) 0 1px 0px;
+		-moz-box-shadow: rgba(0, 0, 0, .25) 0 1px 0px;
+		box-shadow: rgba(0, 0, 0, .25) 0 1px 0px;
+}
+
+
+.scros{
+	height:300px;
+	width: 600px;
+	margin-top:200px;
+	margin-left:230px;
+	padding-right:250px;
+	/*position:absolute;
+*/		/*background-image: url('../images/note2.png');
+*/
+}
+
+
+.scros2{
+	height:350px;
+	width: 800px;
+	margin-top:180px;
+	margin-left:-10px;
+	/*padding-right:350px;*/
+
+}
+
+
+.login_image{
+	position:absolute;
+	height:50px;
+	width: 400px;
+	margin-top:240px;
+	margin-left:295px;
+	padding-right:180px;
+
+}
+
+.password_image{
+	position:absolute;
+	height:50px;
+	width: 400px;
+	margin-top:320px;
+	margin-left:295px;
+	padding-right:180px;
+
+}
+.destiny_image{
+	position:absolute;
+	height:70px;
+	width: 600px;
+	margin-top:200px;
+	margin-left:190px;
+	padding-right:180px;
+
+}
+
+
+/*
+.find{
+	height:300px;
+	width: 600px;
+	margin-top:160px;
+	margin-left:250px;
+}*/
+
+.container{
+	margin-top:408px;
+	position:absolute;
+	width:1100px;
+	height:192px;
+}
+
+.battle1{
+/*	margin-right:200px;*/
+	margin-left:0px;
+	position:absolute;
+	height:191px;
+	width:345px;
+	background-image: url('../images/battle1.png')
+}
+
+.battle2{
+	margin-top:1px;
+	margin-left:752px;
+	position:absolute;
+	height:191px;
+	width:345px;
+	background-image: url('../images/battle1.png')
+
+}
+
+.battle3{
+	margin-top:54px;
+	margin-left:340px;
+	position:absolute;
+	height:138px;
+	width:450px;
+	background-image: url('../images/battle2.png');
+}
