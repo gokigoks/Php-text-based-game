@@ -4,7 +4,7 @@ require_once 'Database.php';
 	
 	
 class User{
-	protected $user_id, $character_id,$current_equip,$current_weapon,$user_hp,$username;
+	protected $user_id, $character_id,$current_equip,$current_weapon,$user_hp,$username,$class;
 	
 	public function __construct(){
 
@@ -32,7 +32,7 @@ class User{
 				//verify if account exists
 				if($count)
 				{
-					$query = "select u.user_id, character_id, curr_equip, curr_weapon,character_hp,curr_stage FROM user u, character_table c ";
+					$query = "select u.user_id, character_id, curr_equip,  curr_weapon,character_hp,curr_stage FROM user u, character_table c ";
 					$query .= "WHERE u.user_name = :user ";
 					$query .= "AND u.password = :pass AND c.user_id = (SELECT user_id FROM user WHERE user_name = :user);";
 					$stmt = $pdo->prepare($query);
@@ -49,13 +49,15 @@ class User{
 							$this->current_weapon = $user['curr_weapon'];
 							$this->user_hp = $user['character_hp'];
 							$this->current_stage = $user['curr_stage'];
+							//$this->class = $row['class'];
+							$_SESSION['current_stage'] =  $user['curr_stage'];
 
 							$level = $user['curr_stage'];
 							$_SESSION['user'] = serialize($this);
 							$this->username = $username;
 
 							
-							header("location:./../../main/scene".$level.".php");
+							header("location:./../../main/scenes/scene".$level.".php");
 						}
 						else{
 
@@ -97,6 +99,10 @@ class User{
 
 		public function getCurrentEquip(){
 			return $this->current_equip;
+		}
+
+		public function getClassName(){
+			return $this->class;
 		}
 
 		public function getWeapon(){

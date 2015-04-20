@@ -4,7 +4,8 @@
 	require_once './../../asset/classes/Character.php';
 	require './../../asset/classes/Level.php';
 
-	$level = new Level(3);
+	$level = new Level();
+	$level->unsetHp();
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<link href="./asset/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../asset/css/scene1.css" rel="stylesheet">
+		<link href="../../asset/css/scene1.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<script>
 			$( document ).click(function () {
@@ -33,7 +34,7 @@
 
 		    <style type="text/css">
 		    .centerDiv {
-		      	background-image: url('../asset/images/lonewanderer.jpg');
+		      	
 		      	background-repeat: no-repeat;
 		      	background-size: 100%;
 		    }
@@ -48,15 +49,19 @@
 	
 	
 
-		<div class="centerDiv">
+		<div class="centerDiv" style="background-image: url(<?php echo $level->getBackground(); ?>)">
 				
 				<div class = "paragraph">
-					<div class = "p1">You wander into the peaceful town <?php?>
+					<div class = "p1"><?php echo $level->getIntro();
+					var_dump($level->getIntro());
+					var_dump($level->getBackground());
+					?>
 					</div>
 
-					<div class = "p2"><?php echo $level->;?>
+					<div class = "p2"><?php echo $level->getStory();?>
 					 			 <div class = "start"> 
-					 			 	<a href = "./batle.php" />START JOURNEY >>></a>
+					 			 	<a href="">SHOP</a>
+					 			 	<a href = "./battle3.php" />START JOURNEY >>></a>
 					 			 </div>
 					</div>
 

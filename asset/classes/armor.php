@@ -2,6 +2,7 @@
 	///require 'item.php';
 	require_once 'Database.php';
 	require_once 'User.php';
+	//namespace asset/classes/armor as Armor;
 	session_start();
 	
 	class armor{

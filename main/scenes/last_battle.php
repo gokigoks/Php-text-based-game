@@ -14,17 +14,14 @@
 		if(isset($_SESSION['outcome']) && $_SESSION['outcome']==true){
 
 			$hidebutton = true;
-		}
+		}	
 
 		$file = basename(__FILE__);
 		$_SESSION['url'] = $file;
 			
 		$level = new Level();
 		$user = new Character();
-		$enemy = new Enemy(2);
-
-
-	    $fleeLink=""; // empty
+		$enemy = new Enemy($level->getLevel());
 
 		if(isset($_GET['move'])){
 
@@ -32,8 +29,7 @@
 			{
 				$user->attack($enemy);
 				$enemy->attack($user);
-				
-				
+
 			}
 			if($_GET['move']=='flee') 
 			{
@@ -43,8 +39,6 @@
 			}
 
 		}
-
-
 
 ?>
 <!DOCTYPE html>
@@ -60,10 +54,9 @@
 		<link href="../../asset/css/main.css" rel="stylesheet">
 		<link href="../../asset/css/battle.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
-		    <style type="text/css">
+		<style type="text/css">
 		    .centerDiv {
-		      	background-image: url('../../asset/images/darkjungles.jpg');
+		      	background-image: url('../../asset/images/lastbattle2.jpg');
 		      	background-repeat: no-repeat;
 		      	background-size: 100%;
 		    }
@@ -79,16 +72,18 @@
 				<div class = "container">
 
 				<div class = "battle3">
-				You encounter a hostile <?php echo $enemy->getName().'<br>';
+				LASTY BATTLE!! <br><?php echo $enemy->getName().'<br>';
+					echo "<br>".$user->getMessage();
 					echo "<br>".$enemy->getMessage();
-					echo "<br>".$user->getMessage()."<br>";
 					echo $fleeLink;
 					
 				 ?>
 				</div>
-				<div class = "battle2"><br>
+				
 					
-					<img src="../../asset/images/wolf.png" class = "mons">
+				<div class = "battle2">
+					
+					<img src="./../../asset/images/drag1.png" class = "mons">
 					<div class = "hp-cont">
 					enemy Hp : <?php   
 						// if($_SESSION['enemy_hp']==0){ echo "0/".$enemy->getMaxHp(); //unset($_SESSION['enemy_hp']);
@@ -96,16 +91,19 @@
 						// else {echo $enemy->getCurrentHp() . '/' .$enemy->getMaxHp(); }
 
 						echo $enemy->getCurrentHp().' / '.$enemy->getMaxHp();
+						
 					?>
+
 					</div>
-				</div>
+				</div>			
+				
 					<div class = "battle1">
 						<div class= "stats-cont"> 
 							<?php if(!isset($_SESSION['outcome'])) { ?>
 							<a href="batle.php?move=attack"><div class = "hp">attack</div></a>
 							<div class = "mana">HP <?php echo $user->getCurrentHp().'/'.$user->getMaxHp().'<br>'; ?></div>
 							<a href="../inventory.php"><div class= "inv">Inventory</div></a>
-							<a href="battle2.php?move=flee"><div class = "flee">Flee</div></a>
+							<a href="lastbattle.php?move=flee"><div class = "flee">Flee</div></a>
 							<?php } 
 							else {
 

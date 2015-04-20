@@ -404,3 +404,16 @@ body{
 	width:450px;
 	background-image: url('../images/battle2.png');
 }
+
+.cont{
+	width:auto;
+	height:auto;
+	position:absolute;
+	margin-top:130px;
+	font-size:0.8em;
+	margin-left:10px;
+	color:white;
+}
+.foot{
+	margin-left:640px;
+}

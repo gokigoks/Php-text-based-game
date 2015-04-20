@@ -7,8 +7,7 @@
 	require './../../asset/classes/Level.php';
 	/*
 	** Dependencies
-	*/
-
+	*/	
 		$hidebutton = false;
 
 		if(isset($_SESSION['outcome']) && $_SESSION['outcome']==true){
@@ -18,21 +17,28 @@
 
 		$file = basename(__FILE__);
 		$_SESSION['url'] = $file;
-			
+
 		$level = new Level();
 		$user = new Character();
-		$enemy = new Enemy(2);
+		$enemy = new Enemy($user->getCurrentStage());
 
 
-	    $fleeLink=""; // empty
+			/*
+			**
+			*/
+			$background = $level->getBackground();
+			$stage = $level->getLevel();
+			$story = $level->getStory();
+			$intro = $level->getIntro();
+
+			$fleeLink=""; // empty
 
 		if(isset($_GET['move'])){
 
 			if($_GET['move']=='attack')
 			{
-				$user->attack($enemy);
-				$enemy->attack($user);
-				
+				echo $user->attack($enemy);
+				echo $enemy->attack($user);
 				
 			}
 			if($_GET['move']=='flee') 
@@ -44,8 +50,6 @@
 
 		}
 
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,22 +60,15 @@
 		<link rel="shortcut icon" href="asset/images/icon.png">
 		<meta name="generator" content="Bootply"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="./asset/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./../asset/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../../asset/css/main.css" rel="stylesheet">
 		<link href="../../asset/css/battle.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-
-		    <style type="text/css">
-		    .centerDiv {
-		      	background-image: url('../../asset/images/darkjungles.jpg');
-		      	background-repeat: no-repeat;
-		      	background-size: 100%;
-		    }
-		    </style>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 </head>
+
 
 <body>
 		<div class="centerDiv" >
@@ -87,8 +84,7 @@
 				 ?>
 				</div>
 				<div class = "battle2"><br>
-					
-					<img src="../../asset/images/wolf.png" class = "mons">
+					<img src="../../asset/images/goblin.png" class = "mons">
 					<div class = "hp-cont">
 					enemy Hp : <?php   
 						// if($_SESSION['enemy_hp']==0){ echo "0/".$enemy->getMaxHp(); //unset($_SESSION['enemy_hp']);
@@ -98,6 +94,7 @@
 						echo $enemy->getCurrentHp().' / '.$enemy->getMaxHp();
 					?>
 					</div>
+					
 				</div>
 					<div class = "battle1">
 						<div class= "stats-cont"> 
@@ -111,6 +108,7 @@
 
 							}
 							?>
+
 						</div>
 					</div>
 				</div>
@@ -124,4 +122,3 @@
 </body>
 
 </html>
-

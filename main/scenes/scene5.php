@@ -6,7 +6,6 @@
 
 	$level = new Level();
 	$level->unsetHp();
-	
 
 ?>
 <!DOCTYPE html>
@@ -22,6 +21,7 @@
 		<link href="./asset/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../../asset/css/scene1.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		
 		<script>
 			$( document ).click(function () {
 				if ( $( ".p1:first" ).is( ":hidden" ) ) {
@@ -32,14 +32,14 @@
 				}
 			});
 		</script>	
-
-		<style type="text/css">
+		    <style type="text/css">
 		    .centerDiv {
 		      	
 		      	background-repeat: no-repeat;
 		      	background-size: 100%;
 		    }
 		    </style>
+
 
 			<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -50,7 +50,7 @@
 	
 	
 
-		<div class="centerDiv" style="background-image: url('../../asset/images/longhouse.jpg');">
+		<div class="centerDiv" style="background-image: url(<?php echo $level->getBackground(); ?>);">
 				
 				<div class = "paragraph">
 					<div class = "p1"><?php echo $level->getIntro(); ?>
@@ -59,7 +59,7 @@
 					<div class = "p2"><?php echo $level->getStory();?>
 					 			 <div class = "start"> <a href="./../shop.php">visit shop</a><br>
 					 			 	<a href="batle.php?v=battle"></a>
-					 			 	<a href = "./battle2.php" />CONTINUE JOURNEY</a>
+					 			 	<a href = "./battle5.php" />CONTINUE JOURNEY</a>
 					 			 </div>
 					</div>
 

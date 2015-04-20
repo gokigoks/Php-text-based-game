@@ -5,6 +5,7 @@
 	interface battle {
 		
 		public function attack(Object $obj);
+		public function calculateDefense();
 		public function getDefense();
 		public function getCurrentHp();
 		public function getMaxHp();

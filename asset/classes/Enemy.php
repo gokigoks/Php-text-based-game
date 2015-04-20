@@ -5,11 +5,18 @@ require_once 'Object.php';
 
 class Enemy implements battle, Object{
 
-	protected $enemy_name,$enemy_hp,$enemy_defense,$enemy_damage,$enemy_level,$max_hp,$msg,$xp,$gold;
+	/*
+	*	This class is serialized and persisted
+	*
+	*
+	**/
+
+	private $enemy_name,$enemy_hp,$enemy_defense,$enemy_damage,$enemy_level,$max_hp,$msg,$xp,$gold;
+
 
 	public function __construct($level){
-
-
+			
+		$this->enemy_level = $level;
 		$db = Database::getInstance();
 		$pdo = $db->getConnection();	
 
@@ -31,6 +38,8 @@ class Enemy implements battle, Object{
 			$this->gold = $enemy['gold'];
 			$this->max_hp = $enemy['enemy_hp'];	
 			$this->xp = $enemy['exp'];
+
+			
 			
 			
 		}
@@ -69,8 +78,7 @@ class Enemy implements battle, Object{
 	}
 
 	public function getDrops(){
-
-		
+				
 	}
 
 	public function getMaxHp(){
@@ -93,6 +101,13 @@ class Enemy implements battle, Object{
 
 	}
 
+	public function calculateDefense()	{
+
+		$defense = $this->enemy_defense / 2;
+		return $defense;
+
+	}
+
 	public function calculateAttack(){
 		$min_attack = $this->getAttack()*0.80;
 		$max_attack = $this->getAttack()*1.20;
@@ -104,25 +119,37 @@ class Enemy implements battle, Object{
 
 
 	public function attack(Object $target){
-		$attack = calculateAttack();
-		if($target->getCurrentHp() > $attack)
-		{	$target->setHp($target->getCurrentHp() - $attack);
+
+		$attack = $this->calculateAttack() - $target->calculateDefense();
+		$dodge = $target->Dodge();
+
+		if($target->getCurrentHp() > $attack && !$dodge)
+		{	
+			$target->setHp($target->getCurrentHp() - $attack);
 			if($target->getCurrentHp()==0 || $target->getCurrentHp()<0){
 				
+				$_SESSION['outcome'] = true;
 				$this->msg = $this->getName()." attacked for ".$attack."!!!";
 				$this->msg = "Player has been defeated by ".$this->getName()." <br>";
 				$this->msg .= "you have been revived in a local shrine";
-				$this->msg .="<a href='town".$target->getCurrentStage().".php'>return to town</a>";
+				$this->msg .="<a href='scene".$_SESSION['current_stage'].".php'>return asdasdto town</a>";
 				
 					
 			}	
 			
-			$this->msg =  $this->getName().' attacked and dealt '.$attack.' damage';
+			$this->msg =  'The '.$this->getName().' attacked dealing '.$attack.' damage<br>';
 		}
-		else
+		elseif($dodge)
 		{
+			$this->msg = "Player was able to dodge the attack!!";
+			return $this->msg;
+		}	
+		else
+		{	
+			$_SESSION['outcome'] = true;
 			$this->msg = get_class($target)." has been defeated..<br>";
-			$this->msg .="<a href='town'".$target->getCurrentStage().".php'>return to town</a>";
+			$this->msg .="<a href='scene".$_SESSION['current_stage'].".php'>return to town</a>";
+			return $this->msg;
 		}
 		
 

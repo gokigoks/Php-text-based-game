@@ -1,5 +1,7 @@
 <?php
-	require 'Character.php';
+require 'Character.php';
+
+
 class rogue extends Character{
 
 

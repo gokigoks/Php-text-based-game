@@ -1,7 +1,7 @@
    <?php
 require_once 'Database.php';
 require_once 'Character.php';
-
+	
 class Level{
 
 	
@@ -9,9 +9,10 @@ class Level{
 
 	public function __construct(){
 
-		//unset($_SESSION['enemy_hp']); 
+	 	
 
-		if(isset($_SESSION['curr_stage'])){
+		if(isset($_SESSION['current_stage']))
+		{
 
 			$db = Database::getInstance();
 			$pdo = $db->getConnection();
@@ -26,25 +27,32 @@ class Level{
 			$this->story = $row['story'];
 			$this->intro = $row['intro'];
 
+
 		}else{
-			$char = unserialize($_SESSION['character']);
-			$_SESSION['current_stage'] = $char->getCurrentStage();
+				
+			
+			$char = new Character();
+			$user = $char->user->getUserId();
 			$db = Database::getInstance();
 			$pdo = $db->getConnection();
-			$query = "SELECT level,background,story from level ";
-			$query.= "WHERE level = :level";
+			$query = "SELECT level,background,story,intro from level ";
+			$query.= "WHERE level = (SELECT curr_stage from character_table where user_id = :user)";
 			$stmt = $pdo->prepare($query);
-			$stmt->execute(array(':level'=>$_SESSION['current_stage']));	
+			$stmt->execute(array(':user'=>$user));	
 			$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 			$this->background = $row['background'];
 			$this->level = $row['level'];
 			$this->story = $row['story'];
+			$this->intro = $row['intro'];
 
 		}
 
 
+
 	}
+
+
 
 
 	public function getLevel(){
@@ -58,6 +66,18 @@ class Level{
 	public function getBackground(){
 		return $this->background;
 	}
+
+	public function getIntro(){
+		return $this->intro;
+	}
+
+	public function unsetHp(){
+		unset($_SESSION['user_hp']);
+		unset($_SESSION['enemy_hp']);
+		unset($_SESSION['outcome']);
+	}
+
+
 
 	// public function level1(){
 

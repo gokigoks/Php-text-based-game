@@ -32,3 +32,20 @@
 .flee{
 	margin-left:-65px;
 }
+
+.mons{
+	height:140px;
+	width:300px;
+}
+
+a:hover{
+	color:#B80000;
+}
+
+a{
+	text-decoration:none;
+	color:white;
+}
+a:visited{
+	text-decoration:none;
+}

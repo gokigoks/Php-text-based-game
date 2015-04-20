@@ -3,7 +3,9 @@
 class Knight extends Character{
 
 	
-
+	
 	
 	
 }
+
+
